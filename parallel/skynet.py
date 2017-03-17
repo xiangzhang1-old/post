@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 from joblib import Parallel, delayed
 import multiprocessing
 
-abspath = os.path.abspath(__file__)
-dname = os.path.dirname(abspath)
-execfile(dname+'/grepen.py')
-execfile(dname+'/dos.py')
-execfile(dname+'/bandstructure.py')
+from grepen import *
+from dos import *
+from bands import *
+
+Agrepen=grepen()
+Ados=dos(Agrepen)
+Abands=bands(Agrepen,Ados)
